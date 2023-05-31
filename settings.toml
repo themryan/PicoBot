@@ -1,0 +1,31 @@
+# Modify these to your wifi needs
+# Up to 10 SSIDs allowed
+WIFI_SSID0 = "Your SSID here"
+WIFI_SSID0_PWD = "Your SSID password here"
+
+
+# Uncomment your SSID below by removing the # in the front
+# WIFI_SSID1="Your SSID"
+# WIFI_SSID1_PWD="Your SSID's password"
+
+# Reset on WIFI connection fail
+RESET_ON_WIFI_FAIL = 0
+
+TROOP_ID = "YourTroopNumberHere"
+TROOP_INDEX = 0
+TROOP_MEMBERS = ["Member1", "Member2", "Member3", "Member4"]
+
+MQTT_BROKER = "broker.mqttdashboard.com"
+
+# Other settings
+
+# Options for Robot Modes are:
+#   Dance
+#   Debug
+#   Explore
+#   Race
+#   Remote
+#   Sleep
+ROBOT_MODE="Dance"
+# This is the file where the dance is written
+DANCE_FILE="dancing.txt"
