@@ -1,3 +1,12 @@
+"""
+@file robot_modes.py
+
+@description This file supports the existing robot modes
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import os
 
 class RobotMode:

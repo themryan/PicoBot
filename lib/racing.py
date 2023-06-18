@@ -1,10 +1,19 @@
+"""
+@file output.py
+
+@description This file supports the Racing mode of the robot
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import base
 import time
 from avoidance import Avoidance, AvoidanceAction
 
 class Racing:
     """
-
+    @description This class will support the Racing mode will race in a large circle while avoiding obstacles
     """
     BASE_DISTANCE_THRESHOLD = 45
     HYSTERESIS_DISTANCE_THRESHOLD = 55

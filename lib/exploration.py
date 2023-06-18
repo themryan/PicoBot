@@ -1,9 +1,18 @@
+"""
+@file exploration.py
+
+@description This file provides code to support the exploration mode of the robot
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import base
 from avoidance import Avoidance, AvoidanceAction
 
 class Exploration:
     """
-    Drives the robot to explore avoiding all obstacles detected by the sonar
+    Drives the robot to explore its surroundings.  Avoiding all obstacles detected by the sonar
     """
     BASE_DISTANCE_THRESHOLD = 45
     HYSTERESIS_DISTANCE_THRESHOLD = 55

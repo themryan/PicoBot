@@ -1,3 +1,12 @@
+"""
+@file wifi_connection.py
+
+@description This file supports the Raspberry Pi Pico W's wifi connection
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import wifi
 import os
 import time

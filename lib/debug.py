@@ -1,9 +1,20 @@
+"""
+@file dance.py
+
+@description This code outputs standard debug info to the robot screen
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import base
 import time
 from display import Display, DebugScreen
 
 class Debug:
-
+    """
+    This class outputs a simple screen for debugging purposes
+    """
     def __init__(self, base):
         self._base = base
 

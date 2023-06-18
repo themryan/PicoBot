@@ -1,5 +1,29 @@
-class Interpreter:
+"""
+@file interpreter.py
 
+@description This file provides support for the 
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
+class Interpreter:
+    """
+    @description 
+    The interpreter will read the following text-based commmands
+
+    FWD
+    REV
+    ST!
+    RGT
+    LFT
+    GO!
+
+    and will provide a corresponding motor command.
+
+    @param an optional input_file containing commands
+
+    """
     __linear = 0
     __angular = 0
     __time_ms = 0

@@ -1,3 +1,12 @@
+"""
+@file base.py
+
+@description The Base class acts as the central input and output manager for all other modules in PicoBot
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 from output import Output
 from input import Input
 from display import Display

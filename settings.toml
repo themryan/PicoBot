@@ -4,7 +4,7 @@ WIFI_SSID0 = "Your SSID here"
 WIFI_SSID0_PWD = "Your SSID password here"
 
 
-# Uncomment your SSID below by removing the # in the front
+# Uncomment your home's SSID below by removing the # in the front
 # WIFI_SSID1="Your SSID"
 # WIFI_SSID1_PWD="Your SSID's password"
 
@@ -27,5 +27,5 @@ MQTT_BROKER = "broker.mqttdashboard.com"
 #   Remote
 #   Sleep
 ROBOT_MODE="Dance"
-# This is the file where the dance is written
+# This is the file where the dance commands are
 DANCE_FILE="dancing.txt"

@@ -1,3 +1,12 @@
+"""
+@file input.py
+
+@description This file processes all inputs from the MQTT server and stores them in a ring buffer 
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
 from output import Output
 

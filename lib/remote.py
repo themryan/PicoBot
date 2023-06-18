@@ -1,3 +1,12 @@
+"""
+@file remote.py
+
+@description This file supports the remote control mode of the robot
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import base
 import wifi
 from interpreter import Interpreter

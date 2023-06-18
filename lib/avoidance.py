@@ -1,3 +1,12 @@
+"""
+@file avoidance.py
+
+@description This code uses the distance obtained from the base class to provide an obstacle avoidance behavior
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import base
 
 class AvoidanceAction:

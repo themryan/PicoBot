@@ -1,5 +1,11 @@
-# CircuitPython 3/15/23
-# Code that wraps the various display drivers into one easier to use
+"""
+@file display.py
+
+@description This provides a general wrapper to the adafruit_displayio_ssd1306 library for outputting to the screen
+
+@author Michael Ryan
+@date {6/18/23}
+"""
 
 import displayio
 import busio

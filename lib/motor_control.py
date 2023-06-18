@@ -1,3 +1,12 @@
+"""
+@file motor_control.py
+
+@description This file provides an interface to the adafruit_motor module
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 from adafruit_motor import motor
 import pwmio
 import time
@@ -6,7 +15,8 @@ class MotorControl:
     """
     Class that manages the motor via the HW-627 DRV8833 H-bridge driver
     """
-    # Arbitrarily chose a frequency of 100000 Hz
+    # Arbitrarily chose a frequency of 100000 Hz that seemed to work best for our motors
+    # This may need to be adjusted for different motors
     frequency = 100000
 
     MAX_PWM = 65535

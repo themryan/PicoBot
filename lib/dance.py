@@ -1,3 +1,12 @@
+"""
+@file dance.py
+
+@description This code reads the file supplied by the DANCE_FILE atrribute in the settings.toml file and will control the robot based on the commands in the specified files
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import base
 import os
 from interpreter import Interpreter
@@ -5,7 +14,7 @@ import time
 
 class Dance:
     """
-    This class opens a file specified in settings.toml's 'DANCE_FILE' setting
+    This class opens a file specified in settings.toml's 'DANCE_FILE' setting and will use the commands in that file to control the robot
     """
     def __init__(self, base):
         self._base = base

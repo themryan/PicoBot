@@ -1,3 +1,12 @@
+"""
+@file output.py
+
+@description This file provides an interface to the MQTT advertised topics and display
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 from display import Display
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
 import socketpool
@@ -51,8 +60,6 @@ class Output:
     def __init__(self, wifi_connected, client_id, client, display, broker=None, topic_pub=None):
         self.display = display
         self._wifi_connected = wifi_connected
-
-        # self._cursor = Cursor()
 
         if broker is not None:
             self.mqtt_server = broker

@@ -1,3 +1,12 @@
+"""
+@file HC_SR04.py
+
+@description This file provides non-blocking support for the HC-SR04 device
+
+@author Michael Ryan
+@date {6/18/23}
+"""
+
 import sys
 # from machine import Pin, Timer
 import time
