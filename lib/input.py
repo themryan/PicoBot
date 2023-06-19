@@ -22,6 +22,9 @@ class SimpleQueue:
         self._index_out = 0
 
     def pop(self):
+        """
+        Pop and return the last message off of the queue
+        """
         # Take them from the front
         msg = None
         index = self._index_out
@@ -37,6 +40,11 @@ class SimpleQueue:
         return msg
 
     def push(self, message: str):
+        """
+        Push message to queue
+
+        @param message A str object to be retained by queue
+        """
         self._queue[self._index_in] = message
         print(self._queue)
         self._index_in = self._index_in + 1
@@ -57,17 +65,28 @@ class Input:
     """
 
     def __init__(self, wifi_connected, topic_pub):
+        """
+        Constructor for the Input class 
 
+        @param wifi_connected A boolean that is True if wifi is connected
+        @param topic_pub The default topic
+        """
         self.__wifi_connected = wifi_connected
         self.__topic_pub = topic_pub
 
         self.__messages = {}
 
     def subscribe(self, client, topic = None):
+        """
+        Subscribe to a topic
 
+        @param client The MQTT Client object
+        @param topic The optional topic to subscribe to 
+                     if None the default topic will be used
+        """
         if self.__wifi_connected:
             if topic is None:
-                topic = self.topic_pub
+                topic = self.__topic_pub
             try:
                 if isinstance(topic, str):
                     print("Subscribing to " + topic)
@@ -85,19 +104,37 @@ class Input:
                 print(e)
 
     def unsubscribe(self, client, topic):
+        """"
+        Unsubscribe to a topic
+
+        @param client MQTT Client object
+        @param topic Topic to unsubscribe from
+        """
         if self.__wifi_connected:
             try:
-                client.unsubscribe(self.topic_pub)
+                client.unsubscribe(self.__topic_pub)
             except Exception as e:
                 print("Failed to unsubscribe")
                 print(e)
 
 
     def received(self, topic, message):
+        """
+        Push the message into the topic's message queue
+
+        @param topic Topic's queue to push the message to
+        @param message Message to push to queue 
+        """
         self.__messages[topic].push(message)
 
 
     def messages(self, topic=None):
+        """
+        Returns any received messages
+
+        @param topic Optional topic queue to receive messages from
+                     If None will retrieve messages from default topic queue
+        """
         ret_str = ""
         if topic is None:
             topic = self.__topic_pub

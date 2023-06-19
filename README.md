@@ -47,7 +47,7 @@ Please note that the default HC-SR04 sensor is 5 volts.  As such it will need sp
 
 #### **DRV3388 Breakout Board**
 
-The DRV3388 is not an absolute requirement for this robot.  It is simply the device driver we used.  Any four channel H-bridge driver should work.  However, the SLOW_DECAY setting for the adafruit_motor may need to be changed.
+The DRV3388 is not an absolute requirement for this robot.  It is simply the device driver we used.  Any two channel H-bridge driver should work.  However, the SLOW_DECAY setting for the adafruit_motor may need to be changed.
 
 #### **Two DC Motors**
 

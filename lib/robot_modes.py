@@ -11,7 +11,7 @@ import os
 
 class RobotMode:
     """
-    These are the currently allowable robot modes
+    Returns the currently set robot mode for the robot
     """
     MODE_EXPLORE = 0
     MODE_DANCE = 1
@@ -39,6 +39,9 @@ class RobotMode:
     ]
 
     def __init__(self):
+        """
+        Constructor method of the RobotMode class 
+        """
         self.__mode = self.MODE_DEBUG
         mode = os.getenv("ROBOT_MODE")
         if mode is not None:
@@ -49,10 +52,22 @@ class RobotMode:
 
     @property
     def mode(self):
+        """
+        Returns the mode of the robot
+        """
         return self.__mode
 
     @mode.setter
     def mode(self, mode):
+        """
+        Sets the mode of the robot
+
+        @param mode RobotMode mode
+        """
+        if mode not in (self.MODE_EXPLORE,  self.MODE_DANCE, self.MODE_DEBUG, \
+                self.MODE_RACING, self.MODE_REMOTE, self.MODE_SLEEP):
+            return
+ 
         self.__mode = mode
 
 

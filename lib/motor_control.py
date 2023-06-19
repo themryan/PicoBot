@@ -9,7 +9,6 @@
 
 from adafruit_motor import motor
 import pwmio
-import time
 
 class MotorControl:
     """
@@ -57,8 +56,12 @@ class MotorControl:
         self.__accel_scale = 100
 
     def velocities(self, linear, angular):
-        #now = time.monotonic_ns()
-        #if self.__last_time == 0 or now - self.__last_time > 500:
+        """
+        Input the desired angular and linear velocities
+
+        @param linear Linear velocity value
+        @param angular Angular velocity value
+        """
         if linear > self.MAX_INPUT or linear < -self.MAX_INPUT:
             print("Linear velocity must be between {1self.MAX_INPUT} and {self.MAX_INPUT}.")
 
@@ -83,13 +86,11 @@ class MotorControl:
         self._motor_b.throttle = duty2
 
     def drive(self):
-        #now = time.monotonic_ns()
-        #if self.__last_time == 0 or now - self.__last_time > 500:
-        #self.__last_time = now
+        """
+        Drive the robot with the last passed velocities
+        """
         pwm1  = 0.0
         pwm2 = 0.0
-        ang1 = 0.0
-        ang2 = 0.0
 
         commanded_linear = self.__linear
         commanded_angular = self.__angular
@@ -152,5 +153,8 @@ class MotorControl:
 
     @property
     def throttle(self):
+        """
+        Return the throttle values for motor a and motor b
+        """
         return self._motor_a.throttle, self._motor_b.throttle
 

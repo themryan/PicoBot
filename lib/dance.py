@@ -1,7 +1,8 @@
 """
 @file dance.py
 
-@description This code reads the file supplied by the DANCE_FILE atrribute in the settings.toml file and will control the robot based on the commands in the specified files
+@description This code reads the file supplied by the DANCE_FILE atrribute in the settings.toml file and 
+             will control the robot based on the commands in the specified files
 
 @author Michael Ryan
 @date {6/18/23}
@@ -14,9 +15,15 @@ import time
 
 class Dance:
     """
-    This class opens a file specified in settings.toml's 'DANCE_FILE' setting and will use the commands in that file to control the robot
+    @class This class opens a file specified in settings.toml's 'DANCE_FILE' setting and 
+           will use the commands in that file to control the robot
     """
     def __init__(self, base):
+        """
+        Constructor method for Dance class
+
+        @param base Base object
+        """
         self._base = base
 
         dance_instructions = os.getenv("DANCE_FILE")
@@ -49,6 +56,9 @@ class Dance:
         self._base.motor.set_accel_scale(20)
 
     def loop(self):
+        """
+        Method to be used in the main loop of the code
+        """
         now = time.monotonic_ns()
         if self.__interpreter is not None and len(self.__interpreter.motor_commands) > 0:
             if self._next_line:

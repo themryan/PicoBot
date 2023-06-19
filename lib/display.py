@@ -16,9 +16,14 @@ import time
 
 class DebugScreen:
     """
-    Writes all outputs to the screen for debugging
+    @class Holds the layout and values for the debug screen
     """
     def __init__(self, display):
+        """
+        This is the constructor method for the debug class
+        
+        @param display is the display object (see below)
+        """
         self._wifi_info = ""
         self._sonar = ""
         self._motor = ""
@@ -46,42 +51,69 @@ class DebugScreen:
 
     @property
     def motor(self):
+        """
+        Returns text of the current state of the motor
+        """
         return self._motor
 
     @motor.setter
     def motor(self, info: str):
+        """
+        Receives text of the current state of the motor
+        """
         self._motor = info
         self.__update()
 
     @property
     def wifi_info(self):
+        """
+        Returns text of the current state of wifi
+        """
         return self._wifi_info
 
     @wifi_info.setter
     def wifi_info(self, info: str):
+        """
+        Receives text of the current state of wifi
+        """
         self._wifi_info = info
         self.__update()
 
     @property
     def sonar(self):
+        """
+        Returns text of the current state of the sonar sensor
+        """
         return self._sonar
 
     @sonar.setter
     def sonar(self, sonar: str):
+        """
+        Receives text of the the current state of the sonar sensor
+        """
         self._sonar = sonar
         self.__update()
 
     @property
     def channel(self):
+        """
+        Returns text of the current state of the MQTT connection
+        """
         return self._mqtt
 
     @channel.setter
     def channel(self, channel: str):
+        """
+        Receives text of the current state of the MQTT connection
+        """
         self._mqtt = channel
         self.__update()
 
 
     def __update(self):
+        """
+        Update the debug screen
+        """
         self._display.text(self._wifi_info_text + self._wifi_info,
                             self._wifi_info_pos[0], self._wifi_info_pos[1], self._wifi_info_layer)
 
@@ -102,7 +134,12 @@ class Display:
     throttle_threshold = 100000
 
     def __init__(self, sda_pin, scl_pin):
+        """
+        Constructor method for the Display class
 
+        @param sda_pin The SDA capable pin connected to the SSD1306 compatible display
+        @param scl_pin The SCL capable pin connected to the SSD1306 compatible display
+        """
         displayio.release_displays()
         i2c = busio.I2C(scl=scl_pin, sda=sda_pin)
         display_bus = displayio.I2CDisplay(i2c, device_address=0x3C)
@@ -122,6 +159,16 @@ class Display:
         return False
 
     def fill(self, width, height, is_on, layer=None, x=0, y=0):
+        """
+        Fills the monochrome display with a rectange of size width, height
+
+        @param width Width of the filled rectangle
+        @param height Height of the filled rectangle
+        @param is_on True if the pixels are on in the filled rectangle
+        @param layer Optional value that defines the layer the filled rectangle resides on
+        @param x Optional value of the horizontal coordinate of the left top corner
+        @param y Option value of the vertical coordinate of the left top corner
+        """
         if self.__check_throttle():
             color_bitmap = displayio.Bitmap(width, height, 1)
 
@@ -148,6 +195,17 @@ class Display:
 
 
     def text(self, text, x, y, layer=None, scale = 1, color=True):
+        """
+        Write text to the designated coordinates
+
+        @param text Text to write to the display
+        @param x Upper left horizontal coordinate of the rectangle used by the text
+        @param y Upper left vertical coordinate of the rectangle used by the text
+        @param layer Optional layer to write the text to
+        @param scale Optional value to scale the default size of the text 
+        @param color Optional boolean when True turns on the pixels that make up the text
+                              False writes inverted pixels for the text
+        """
         if self.__check_throttle():
             foreground_color = 0x0FFFFFF
             if not color:
@@ -168,5 +226,8 @@ class Display:
 
 
     def clear(self):
+        """
+        Clear the layers
+        """
         while len(self.__group) > 0:
             self.__group.pop()

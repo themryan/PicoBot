@@ -19,7 +19,7 @@ from adafruit_ticks import ticks_ms
 
 class HC_SR04:
     """
-    Interfaces to a HC-SR04 sonar device
+    @class Interface to a HC-SR04 sonar device
     """
     MAX_TRIGGER_TIME_LEN = 10000  # ns
 
@@ -31,6 +31,12 @@ class HC_SR04:
     PROCESS = 4
 
     def __init__(self, trigger_pin, echo_pin):
+        """
+        Constructor method of the HC_SR04 device interface
+
+        @param trigger_pin The gpio pin connected to the HC-SR04 trigger
+        @param echo_pin The gpio pin connected to the HC-SR04 echo
+        """
         self._echoes = pulseio.PulseIn(echo_pin, idle_state=False)
         self._echoes.pause()
         self._trigger = digitalio.DigitalInOut(trigger_pin)
@@ -75,5 +81,8 @@ class HC_SR04:
         return self._distance
 
     def distance(self):
+        """
+        Returns the last distance measured by the HC-SR04 or -1 if not responding
+        """
         return self.__get_distance()
 

@@ -16,6 +16,11 @@ class Debug:
     This class outputs a simple screen for debugging purposes
     """
     def __init__(self, base):
+        """
+        Constructor method for the Debug class
+
+        @param base Base object
+        """
         self._base = base
 
         self._debug_screen = DebugScreen(self._base.output.display)

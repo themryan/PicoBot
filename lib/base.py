@@ -23,6 +23,7 @@ from robot_modes import RobotMode
 class Base:
     """
     This class acts as central control.
+    
     This class contains the following objects
         output - controls publishing and screen writes
         input - controls the messages received from the MQTT connection
@@ -49,7 +50,12 @@ class Base:
     troop = ["Member1"]
 
     def __init__(self, display, wifi_connected):
+        """
+        Construction method for the base foundation class
 
+        @param display the Display object
+        @param wifi_connected a boolean value that is true if the wifi is connected
+        """
         self._wifi_connected= wifi_connected
         print(wifi_connected)
 

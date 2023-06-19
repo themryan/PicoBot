@@ -26,10 +26,13 @@ class Interpreter:
     """
     __linear = 0
     __angular = 0
-    __time_ms = 0
 
-    def __init__(self, input_file=None):
+    def __init__(self, input_cmds=None):
+        """
+        Constructor fo the Interpreter class
 
+        @param input_file Optional list of commands
+        """
         self.COMMANDS = {
             "FWD": self.__forward,
             "REV": self.__reverse,
@@ -41,16 +44,21 @@ class Interpreter:
 
         self.motor_commands = []
 
-        if input_file is not None:
-            self.load_commands(input_file)
+        if input_cmds is not None:
+            self.load_commands(input_cmds)
 
-    def load_commands(self, input_file):
-        for line_number, line in enumerate(input_file):
+    def load_commands(self, input_cmds):
+        """
+        Load the list of commands in input_cmds into the parser
+
+        @param input_cmd Newline delineated list of commands for the parser
+        """
+        for line_number, line in enumerate(input_cmds):
             self.__line_number = line_number
             self.__parser(line)
 
     def __error(self, input_str):
-        print("Error on {self.__line_number}: {input_str}")
+        print("Error on {}: {}", self.__line_number, input_str)
 
     def __parser(self, input_line):
         instruction = input_line[0:3]

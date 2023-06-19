@@ -19,7 +19,11 @@ class Racing:
     HYSTERESIS_DISTANCE_THRESHOLD = 55
 
     def __init__(self, base):
+        """
+        Constructor for Racing class
 
+        @param base Base object
+        """
         self._dist_threshold = self.BASE_DISTANCE_THRESHOLD
         self._threshold_count = 0
 
@@ -39,7 +43,9 @@ class Racing:
         self._countdown = 1
 
     def loop(self):
-
+        """
+        Method to be used in the main loop of the code
+        """
         now = time.monotonic_ns()
         distance = self._base.sonar.distance()
 

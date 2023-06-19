@@ -18,7 +18,11 @@ class Exploration:
     HYSTERESIS_DISTANCE_THRESHOLD = 55
 
     def __init__(self, base_in):
+        """
+        Constructor for the Exploration class
 
+        @param base_in Base object
+        """
         self._dist_threshold = self.BASE_DISTANCE_THRESHOLD
         self._dist_threshold = 0
         self._threshold_count = 0
@@ -40,6 +44,9 @@ class Exploration:
 
 
     def loop(self):
+        """
+        Method to be used in the main loop of the code
+        """
         if self._obstacles.obstacles() == AvoidanceAction.TURN:
             angular_velocity = 30
             if not self.__is_left:

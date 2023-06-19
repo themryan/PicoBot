@@ -1,7 +1,8 @@
 """
 @file avoidance.py
 
-@description This code uses the distance obtained from the base class to provide an obstacle avoidance behavior
+@description This code uses the distance obtained from the base class 
+             to provide an obstacle avoidance behavior
 
 @author Michael Ryan
 @date {6/18/23}
@@ -16,22 +17,30 @@ class AvoidanceAction:
 
 class Avoidance:
     """
-    Provides a class for gauging distance thresholds and avoiding obstacles
+    @class A class for gauging distance thresholds and returning recommended avoidance actions
     """
     REVERSE_DISTANCE_THRESHOLD = 10
     BASE_DISTANCE_THRESHOLD = 50
     HYSTERESIS_DISTANCE_THRESHOLD = 60
 
     def __init__(self, base):
+        """
+        A constructor method that sets the defaults values for the 
+            distance threshold
+            threshold_count
+            distance from any object
+        """
         self._base = base
 
         self._dist_threshold = self.BASE_DISTANCE_THRESHOLD
-        self._dist_threshold = 0
         self._threshold_count = 0
 
         self.distance = 0
 
     def obstacles(self) -> AvoidanceAction:
+        """
+        Returns a recommended avoidance action depending on the distance of the object and passed threshold parameters
+        """
         is_obstacle = AvoidanceAction.NONE
         self.distance = self._base.sonar.distance()
 

@@ -1,7 +1,7 @@
 """
 @file remote.py
 
-@description This file supports the remote control mode of the robot
+@description This file supports the Remote control mode of the robot
 
 @author Michael Ryan
 @date {6/18/23}
@@ -17,6 +17,11 @@ class Remote:
     Class for connecting to remove MQTT site for robot control
     """
     def __init__(self, base):
+        """
+        Constructor for Remote class
+
+        @param base Base object
+        """
         time.sleep(0.1)
         self._base = base
         self._interpreter = Interpreter()
@@ -29,6 +34,7 @@ class Remote:
 
     def loop(self):
         """
+        Method to be used in the main loop of the code
         """
         now = time.monotonic_ns()
         commands = self._base.input.messages(self._base.topic_ctrl)
