@@ -7,14 +7,10 @@
 @date {6/18/23}
 """
 
-from display import Display
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
-import socketpool
 from robot_modes import RobotMode
 from display import Display
 import time
-import board
-import busio
 
 class Cursor:
     x = 0

@@ -7,8 +7,6 @@
 @date {6/18/23}
 """
 
-import base
-import time
 from display import Display, DebugScreen
 
 class Debug:
@@ -30,6 +28,9 @@ class Debug:
 
 
     def loop(self):
+        """
+        Method to be used in the main loop of the code
+        """
         self._debug_screen.sonar = str(self._base.sonar.distance())
 
         throttle = self._base.motor.throttle

@@ -6,16 +6,9 @@
 @author Michael Ryan
 @date {6/18/23}
 """
-
-import sys
-# from machine import Pin, Timer
 import time
-import countio
 import pulseio
 import digitalio
-import sys
-import array
-from adafruit_ticks import ticks_ms
 
 class HC_SR04:
     """
@@ -46,6 +39,9 @@ class HC_SR04:
         self._distance = -1
 
     def _start_trigger(self):
+        """
+        Start the trigger pulse
+        """
         self.__state = self.START_TRIGGER
         self._start_time = time.monotonic_ns()
         self._timeout_count = 0
@@ -53,12 +49,18 @@ class HC_SR04:
         self._echoes.pause()
 
     def __end_trigger(self):
-        self.__state = self.END_TRIGGER
+        """
+        End the trigger pulse and start wait for echoes pulse
+        """
+        self._state = self.END_TRIGGER
         self._trigger.value = False
         self._echoes.clear()
         self._echoes.resume()
 
     def __get_distance(self):
+        """
+        Returns the last distance measured and advances the device driver state
+        """
         if self.__state == self.START_TRIGGER:
             if (time.monotonic_ns() - self._start_time) > self.MAX_TRIGGER_TIME_LEN:
                 self.__end_trigger()
@@ -83,6 +85,8 @@ class HC_SR04:
     def distance(self):
         """
         Returns the last distance measured by the HC-SR04 or -1 if not responding
+
+        Needs to be polled continuously to keep device driver state advancing
         """
         return self.__get_distance()
 

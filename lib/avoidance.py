@@ -8,9 +8,10 @@
 @date {6/18/23}
 """
 
-import base
-
 class AvoidanceAction:
+    """
+    Suggested actions returned by the Avoidance class
+    """
     NONE = 0
     TURN = 1
     REVERSE = 2
@@ -29,6 +30,8 @@ class Avoidance:
             distance threshold
             threshold_count
             distance from any object
+
+        @param base Base object
         """
         self._base = base
 

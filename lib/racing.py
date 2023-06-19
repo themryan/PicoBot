@@ -47,7 +47,7 @@ class Racing:
         Method to be used in the main loop of the code
         """
         now = time.monotonic_ns()
-        distance = self._base.sonar.distance()
+        # used just for debugging
 
         if now > self._countdown_time:
             self._racing_velocities = [80, -20]

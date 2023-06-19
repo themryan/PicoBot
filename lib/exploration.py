@@ -7,7 +7,6 @@
 @date {6/18/23}
 """
 
-import base
 from avoidance import Avoidance, AvoidanceAction
 
 class Exploration:
