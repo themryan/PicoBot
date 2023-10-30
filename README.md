@@ -43,11 +43,11 @@ In conjunction with this we used the Adafruit CircuitPython library bundle for C
 
 #### **HC-SR04 Sonar Distance Sensor**
 
-Please note that the default HC-SR04 sensor is 5 volts.  As such it will need special care in connecting to the Pico which is a 3V board.
+Please note that the default HC-SR04 sensor is 5 volts.  As such it will need special care in connecting to the Pico which is a 3V board.  See 'schematics' for the resistor ladder I used to drop the voltage.
 
 #### **DRV3388 Breakout Board**
 
-The DRV3388 is not an absolute requirement for this robot.  It is simply the device driver we used.  Any two channel H-bridge driver should work.  However, the SLOW_DECAY setting for the adafruit_motor may need to be changed.
+The DRV3388 is not an absolute requirement for this robot.  It is simply the device driver we used.  Any two channel H-bridge driver should work.  However, the SLOW_DECAY setting for the adafruit_motor may need to be changed.  See your device's data sheet for information on what is needed.
 
 #### **Two DC Motors**
 
