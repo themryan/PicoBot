@@ -19,7 +19,7 @@ The dance state allows each robot-builder to create their own choreographed danc
 The debug state simply prints to the robot's screen an active list of the robots internal states.  This state is useful in seeing if the distance sensor is working or if the robot is connected.
 
 #### **Explore**
-In the explore state the robot will attempt to move progress forward while using its distance sensor to avoid obstacles.
+In the explore state the robot will attempt to progress forward while using its distance sensor to avoid obstacles.
 
 #### **Race**
 In the race mode the robot will race as fast as it can in a large circle while attempting to avoid obstacles using its distance sensor.
